@@ -3,328 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sashrika TS | ECE Portfolio</title>
-    <!-- Load Tailwind CSS -->
+    <title>Sarmithaa Angamuthu | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configure Tailwind to use Inter font and custom colors -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#4F46E5', // Indigo 600
-                        'secondary': '#10B981', // Emerald 500
-                        'background-dark': '#0F172A', // Slate 900
-                        'text-light': '#F8FAFC', // Slate 50
-                        'card-dark': '#1E293B', // Slate 800
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Smooth scrolling for navigation */
-        html {
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
-        /* Custom scrollbar style */
-        body::-webkit-scrollbar {
-            width: 8px;
+
+        .gradient-text {
+            background: linear-gradient(90deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        body::-webkit-scrollbar-track {
-            background: #0F172A;
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
-        body::-webkit-scrollbar-thumb {
-            background-color: #4F46E5;
-            border-radius: 20px;
+
+        .skill-badge {
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #6366f1;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
-<body class="bg-background-dark text-text-light font-sans">
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Navigation Bar -->
-    <header class="sticky top-0 z-50 bg-card-dark shadow-lg bg-opacity-95 backdrop-blur-sm">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#" class="text-xl font-bold text-primary hover:text-secondary transition duration-300">Sashrika TS</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 font-bold text-xl tracking-tight text-indigo-600">
+                    SA.
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="text-text-light hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
-                        <a href="#skills" class="text-text-light hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
-                        <a href="#portfolio" class="text-text-light hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
-                        <a href="#contact" class="text-text-light hover:text-secondary px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+                    <div class="ml-10 flex items-baseline space-x-8 font-medium">
+                        <a href="#home" class="nav-link px-3 py-2 text-slate-700 hover:text-indigo-600">Home</a>
+                        <a href="#about" class="nav-link px-3 py-2 text-slate-700 hover:text-indigo-600">About</a>
+                        <a href="#skills" class="nav-link px-3 py-2 text-slate-700 hover:text-indigo-600">Skills</a>
+                        <a href="#education" class="nav-link px-3 py-2 text-slate-700 hover:text-indigo-600">Education</a>
+                        <a href="#contact" class="nav-link px-3 py-2 text-slate-700 hover:text-indigo-600">Contact</a>
                     </div>
                 </div>
                 <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden">
-                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-text-light hover:text-secondary hover:bg-primary/20 focus:outline-none transition duration-300" aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-slate-700 hover:text-indigo-600 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="text-text-light hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition duration-300">About</a>
-                <a href="#skills" class="text-text-light hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition duration-300">Skills</a>
-                <a href="#portfolio" class="text-text-light hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition duration-300">Projects</a>
-                <a href="#contact" class="text-text-light hover:text-secondary block px-3 py-2 rounded-md text-base font-medium transition duration-300">Contact</a>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-6 space-y-1">
+            <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Home</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">About</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Skills</a>
+            <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Education</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-indigo-50 hover:text-indigo-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+            <div class="inline-block px-4 py-1 mb-6 text-sm font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50 rounded-full">
+                ECE Engineering Student
+            </div>
+            <h1 class="hero-text text-5xl md:text-7xl font-bold mb-6 text-slate-900 leading-tight">
+                Hi, I'm <span class="gradient-text">Sarmithaa Angamuthu</span>
+            </h1>
+            <p class="max-w-2xl text-lg text-slate-600 mb-10 leading-relaxed">
+                Aspiring Electronics and Communication Engineer at Sri Eshwar College of Engineering. Passionate about software development, data management, and hardware-software integration.
+            </p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-indigo-200 transition-all flex items-center justify-center">
+                    Get in Touch
+                </a>
+                <a href="https://www.linkedin.com/in/sarmithaa-angamuthu-75b097322" target="_blank" class="bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 px-8 py-4 rounded-xl font-semibold transition-all flex items-center justify-center">
+                    <i class="fab fa-linkedin mr-2 text-indigo-600"></i> LinkedIn Profile
+                </a>
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="max-w-7xl mx-auto">
-        <!-- Hero / About Section -->
-        <section id="about" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
-                <!-- Text Content -->
-                <div class="md:w-3/5">
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
-                        Hello, I'm <span class="text-primary">Sashrika TS</span>
-                    </h1>
-                    <h2 class="text-xl sm:text-2xl text-secondary mb-6 font-medium">
-                        Electronics and Communication Engineering Student
-                    </h2>
-                    <p class="text-lg text-slate-300 mb-8 max-w-xl">
-                        I'm currently pursuing my Bachelor's degree in *Electronics and Communication Engineering (ECE)* at Sri Eshwar College of Engineering, passionate about exploring innovations in *embedded systems*. I thrive on turning complex problems into elegant, functional solutions.
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                        <img src="https://ui-avatars.com/api/?name=Sarmithaa+Angamuthu&background=6366f1&color=fff&size=512" alt="Sarmithaa" class="rounded-xl w-full h-auto grayscale hover:grayscale-0 transition-all duration-500">
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <p class="text-slate-600 text-lg">
+                        Currently based in <span class="font-semibold">Coimbatore, Tamil Nadu</span>, I am pursuing my Bachelor's degree in <span class="text-indigo-600 font-semibold">Electronics and Communication Engineering</span>. 
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#portfolio" class="bg-primary text-text-light font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-primary/90 transition duration-300 text-center">
-                            View My Projects
-                        </a>
-                        <a href="mailto:sashrikats@gmail.com" class="border border-secondary text-secondary font-semibold py-3 px-6 rounded-lg hover:bg-secondary/10 transition duration-300 text-center">
-                            Get In Touch
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Profile Card/Image Placeholder -->
-                <div class="md:w-2/5 flex justify-center">
-                    <div class="w-64 h-64 rounded-full bg-card-dark border-4 border-primary shadow-2xl flex items-center justify-center p-2 transform transition duration-500 hover:scale-105">
-                        <svg class="w-40 h-40 text-primary opacity-70" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-card-dark/50 rounded-xl mx-4 sm:mx-6 lg:mx-8 shadow-inner">
-            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-secondary">Technical Expertise</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <!-- Skill Card 1: Embedded Systems -->
-                <div class="flex flex-col items-center p-6 bg-card-dark rounded-xl shadow-xl border-t-4 border-primary transition duration-300 hover:shadow-primary/50">
-                    <svg class="w-12 h-12 text-primary mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1h-.75M3 17h18M5 17h14M12 15V5M12 5L10 7M12 5L14 7"/></svg>
-                    <p class="font-semibold text-lg text-center">Embedded Systems</p>
-                    <span class="text-sm text-slate-400 mt-1">Arduino, Raspberry Pi, Microcontrollers</span>
-                </div>
-                <!-- Skill Card 2: Programming -->
-                <div class="flex flex-col items-center p-6 bg-card-dark rounded-xl shadow-xl border-t-4 border-secondary transition duration-300 hover:shadow-secondary/50">
-                    <svg class="w-12 h-12 text-secondary mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                    <p class="font-semibold text-lg text-center">Programming</p>
-                    <span class="text-sm text-slate-400 mt-1">C/C++, Python, Basic Web Dev (HTML/CSS)</span>
-                </div>
-                <!-- Skill Card 3: Circuit Design -->
-                <div class="flex flex-col items-center p-6 bg-card-dark rounded-xl shadow-xl border-t-4 border-primary transition duration-300 hover:shadow-primary/50">
-                    <svg class="w-12 h-12 text-primary mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
-                    <p class="font-semibold text-lg text-center">Circuit Design</p>
-                    <span class="text-sm text-slate-400 mt-1">Simulation Tools, PCB Layout Principles</span>
-                </div>
-                <!-- Skill Card 4: Data Communication -->
-                <div class="flex flex-col items-center p-6 bg-card-dark rounded-xl shadow-xl border-t-4 border-secondary transition duration-300 hover:shadow-secondary/50">
-                    <svg class="w-12 h-12 text-secondary mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.649A9.957 9.957 0 013 12C3 7.582 7.03 4 12 4s9 3.582 9 8z"/></svg>
-                    <p class="font-semibold text-lg text-center">Communication</p>
-                    <span class="text-sm text-slate-400 mt-1">IoT Protocols, Data Logging, Teamwork</span>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Portfolio / Projects Section -->
-        <section id="portfolio" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary">My Projects</h3>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Project Card 1: Smart Home Automation -->
-                <div class="bg-card-dark rounded-xl shadow-2xl overflow-hidden border border-slate-700 transition duration-300 hover:scale-[1.02] hover:shadow-primary/40">
-                    <img src="https://placehold.co/600x400/10B981/0F172A?text=Embedded+IoT+Project" alt="Project Placeholder" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold mb-2 text-secondary">Smart Home Automation System</h4>
-                        <p class="text-slate-400 text-sm mb-4">
-                            Designed and prototyped an IoT-based system for remote appliance control and environmental monitoring using Arduino and a custom mobile interface.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">Arduino</span>
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">IoT</span>
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">C++</span>
+                    <p class="text-slate-600 text-lg">
+                        My technical journey involves a deep dive into programming languages and database management systems, bridging the gap between hardware engineering and software solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="text-center p-4 rounded-xl bg-slate-50 flex-1">
+                            <span class="block text-2xl font-bold text-indigo-600">2024</span>
+                            <span class="text-xs uppercase text-slate-500 font-bold">Graduation Year</span>
                         </div>
-                        <a href="#" class="mt-4 inline-block text-primary hover:text-secondary font-medium transition duration-300">View Details &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Project Card 2: Robotics Challenge -->
-                <div class="bg-card-dark rounded-xl shadow-2xl overflow-hidden border border-slate-700 transition duration-300 hover:scale-[1.02] hover:shadow-primary/40">
-                    <img src="https://placehold.co/600x400/4F46E5/F8FAFC?text=Robotics+Project" alt="Project Placeholder" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold mb-2 text-secondary">Line Following Robot with PID</h4>
-                        <p class="text-slate-400 text-sm mb-4">
-                            Developed a highly optimized line-following robot using a micro-controller, implementing a PID control algorithm for precision and speed.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">Microcontrollers</span>
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">Robotics</span>
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">C</span>
-                        </div>
-                        <a href="#" class="mt-4 inline-block text-primary hover:text-secondary font-medium transition duration-300">View Details &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- Project Card 3: Data Logger -->
-                <div class="bg-card-dark rounded-xl shadow-2xl overflow-hidden border border-slate-700 transition duration-300 hover:scale-[1.02] hover:shadow-primary/40">
-                    <img src="https://placehold.co/600x400/F97316/0F172A?text=Data+Logger+Project" alt="Project Placeholder" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h4 class="text-xl font-semibold mb-2 text-secondary">Environmental Data Logger</h4>
-                        <p class="text-slate-400 text-sm mb-4">
-                            Built a standalone data logger using a Raspberry Pi to record temperature, humidity, and pressure, storing data in a local database for analysis.
-                        </p>
-                        <div class="flex flex-wrap gap-2 text-xs">
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">Raspberry Pi</span>
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">Python</span>
-                            <span class="bg-primary/20 text-primary py-1 px-3 rounded-full">Data Analysis</span>
-                        </div>
-                        <a href="#" class="mt-4 inline-block text-primary hover:text-secondary font-medium transition duration-300">View Details &rarr;</a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-card-dark/50 rounded-xl mx-4 sm:mx-6 lg:mx-8 shadow-inner">
-            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-secondary">Education</h3>
-            <div class="max-w-3xl mx-auto space-y-8">
-                <div class="relative pl-8 sm:pl-32 py-4 group">
-                    <!-- Vertical Line -->
-                    <div class="absolute left-0 sm:left-12 top-0 bottom-0 w-1 bg-primary/20"></div>
-                    <!-- Dot -->
-                    <div class="absolute left-0 sm:left-12 top-6 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 group-hover:scale-125 transition duration-300 border-2 border-background-dark"></div>
-
-                    <p class="text-lg font-semibold text-text-light">Bachelor of Engineering - BE, ECE</p>
-                    <p class="text-primary font-medium">Sri Eshwar College of Engineering</p>
-                    <p class="text-slate-400 text-sm mt-1">September 2024 - August 2028 | Salem, Tamil Nadu, India</p>
-                    <ul class="list-disc pl-5 mt-3 text-slate-300 text-sm space-y-1">
-                        <li>Focused studies on Electrical, Electronics, and Communications Engineering.</li>
-                        <li>Developing a strong foundation in core ECE concepts and practical lab skills.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-primary">Get In Touch</h3>
-            <div class="max-w-xl mx-auto bg-card-dark p-8 rounded-xl shadow-2xl border-t-4 border-secondary">
-                <p class="text-center text-slate-300 mb-6">
-                    Have a question about a project, or want to discuss embedded systems innovation? I'd love to hear from you.
-                </p>
-
-                <div class="space-y-4">
-                    <!-- Email Link -->
-                    <div class="flex items-center space-x-4 bg-slate-800 p-4 rounded-lg shadow-inner">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26c.3.2.6.3.9.3s.6-.1.9-.3L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"/></svg>
-                        <div>
-                            <p class="text-sm text-slate-400">Email Address</p>
-                            <a href="mailto:sashrikats@gmail.com" class="text-text-light hover:text-secondary transition duration-300 font-medium">sashrikats@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <!-- LinkedIn Link -->
-                    <div class="flex items-center space-x-4 bg-slate-800 p-4 rounded-lg shadow-inner">
-                        <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 8a6 6 0 00-6-6v.07l.95.83A4.57 4.57 0 0116 8zm-8.8 8c-.61 0-1.1-.49-1.1-1.1s.49-1.1 1.1-1.1 1.1.49 1.1 1.1-.49 1.1-1.1 1.1zm-.2 2.9h2.3V10H7V18.9zm13.1-4.9c0-3.1-2.5-5.6-5.6-5.6s-5.6 2.5-5.6 5.6v3.3h2.2v-3.3c0-1.9 1.5-3.4 3.4-3.4s3.4 1.5 3.4 3.4v3.3h2.2v-3.3z"/>
-                        </svg>
-                        <div>
-                            <p class="text-sm text-slate-400">LinkedIn Profile</p>
-                            <a href="https://www.linkedin.com/in/sashrika-t-s-657985323" target="_blank" class="text-text-light hover:text-secondary transition duration-300 font-medium truncate">
-                                linkedin.com/in/sashrika-t-s-657985323
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Location -->
-                    <div class="flex items-center space-x-4 bg-slate-800 p-4 rounded-lg shadow-inner">
-                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243m10.606 0a6 6 0 10-8.485 0m8.485 0L12 21.071l-5.657-5.657m8.485 0a4 4 0 10-5.657 0"/></svg>
-                        <div>
-                            <p class="text-sm text-slate-400">Location</p>
-                            <p class="text-text-light font-medium">Salem, Tamil Nadu, India</p>
+                        <div class="text-center p-4 rounded-xl bg-slate-50 flex-1">
+                            <span class="block text-2xl font-bold text-indigo-600">Coimbatore</span>
+                            <span class="text-xs uppercase text-slate-500 font-bold">Location</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-card-dark mt-12 py-8 border-t border-slate-700">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-400 text-sm">
-            <p>&copy; <span id="current-year"></span> Sashrika TS. All rights reserved.</p>
-            <p class="mt-2">Designed and Developed with <span class="text-red-500">&hearts;</span> and Tailwind CSS.</p>
         </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Technical Proficiency</h2>
+                <p class="text-slate-500">A snapshot of my core programming and analytical skills.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Python -->
+                <div class="skill-badge p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6">
+                        <i class="fab fa-python text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Python</h3>
+                    <p class="text-slate-500 text-sm">Proficient in scripting, data analysis, and general-purpose programming.</p>
+                </div>
+                <!-- SQL -->
+                <div class="skill-badge p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-600 mb-6">
+                        <i class="fas fa-database text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">SQL</h3>
+                    <p class="text-slate-500 text-sm">Experience in database design, querying, and managing relational data.</p>
+                </div>
+                <!-- C -->
+                <div class="skill-badge p-8 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-slate-600 mb-6">
+                        <span class="text-3xl font-bold">C</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">C Language</h3>
+                    <p class="text-slate-500 text-sm">Foundational knowledge in system programming and low-level development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Education Path</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+            </div>
+            <div class="space-y-8">
+                <div class="flex items-start">
+                    <div class="hidden sm:flex flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full items-center justify-center text-indigo-600 mr-6 mt-1">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="flex-grow p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Sri Eshwar College of Engineering</h3>
+                            <span class="text-sm font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">2020 - 2024</span>
+                        </div>
+                        <p class="text-slate-700 font-medium">B.E in Electronics and Communication Engineering</p>
+                        <p class="text-slate-500 mt-2 text-sm italic text-slate-400">Coimbatore, Tamil Nadu</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="hidden sm:flex flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full items-center justify-center text-indigo-600 mr-6 mt-1">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="flex-grow p-8 rounded-2xl bg-slate-50 border border-slate-100">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Kendriya Vidyalaya (KV)</h3>
+                            <span class="text-sm font-semibold text-slate-500 bg-slate-100 px-3 py-1 rounded-full">Secondary Education</span>
+                        </div>
+                        <p class="text-slate-700">Higher Secondary Schooling</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-slate-400">Open to collaborations and professional opportunities.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-6 p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                        <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 text-sm">Email Me</p>
+                            <a href="mailto:sarmithaaangamuthu@gmail.com" class="text-lg font-semibold hover:text-indigo-400 transition-colors">sarmithaaangamuthu@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-6 p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                        <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 text-sm">Call Me</p>
+                            <a href="tel:9003397602" class="text-lg font-semibold hover:text-indigo-400 transition-colors">9003397602</a>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-6 p-6 rounded-2xl bg-slate-800 border border-slate-700">
+                        <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 text-sm">LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/sarmithaa-angamuthu-75b097322" target="_blank" class="text-lg font-semibold hover:text-indigo-400 transition-colors">In/sarmithaa-angamuthu</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-3xl border border-slate-700">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Your Name</label>
+                            <input type="text" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-400 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 focus:outline-none focus:border-indigo-500 transition-colors" placeholder="How can I help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold transition-all transform active:scale-95">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="success-msg" class="hidden mt-4 p-4 bg-green-900/50 border border-green-500 text-green-200 rounded-xl text-center">
+                        Thanks! I'll get back to you soon.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 bg-slate-950 text-slate-500 text-center border-t border-slate-800 text-sm">
+        <p>© 2024 Sarmithaa Angamuthu. All Rights Reserved.</p>
     </footer>
 
-    <!-- JavaScript for responsiveness and dynamic content -->
     <script>
-        // Get the current year for the footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Mobile menu toggle functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
-        mobileMenuButton.addEventListener('click', () => {
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+        menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-            
-            // Toggle hamburger icon (optional: swapping SVG paths for open/close)
-            const iconOpen = mobileMenuButton.querySelector('.block');
-            const iconClose = mobileMenuButton.querySelector('.hidden');
-            iconOpen.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
         });
 
-        // Close mobile menu when a link is clicked
-        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-        mobileMenuLinks.forEach(link => {
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                // Only close if menu is open
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    
-                    // Reset icon
-                    const iconOpen = mobileMenuButton.querySelector('.block');
-                    const iconClose = mobileMenuButton.querySelector('.hidden');
-                    iconOpen.classList.remove('hidden');
-                    iconClose.classList.add('hidden');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Logic
+        const form = document.getElementById('contact-form');
+        const successMsg = document.getElementById('success-msg');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+            
+            // In a real app, you would send the data to a backend here
+            console.log("Form submitted locally.");
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('translate-y-10');
                 }
             });
+        }, observerOptions);
+
+        // Add reveal classes to sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('transition-all', 'duration-1000', 'translate-y-10', 'opacity-0');
+            observer.observe(section);
         });
     </script>
 </body>
